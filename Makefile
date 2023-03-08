@@ -14,7 +14,7 @@ PATH_PRINTF := ft_printf/
 
 CC    =    cc
 
-CFLAGS    =    -Werror -Wall -Wextra
+CFLAGS    =    -Werror -Wall -Wextra -g3
 
 AR    =		ar
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victor <victor@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vburton <vburton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:37:47 by victor            #+#    #+#             */
-/*   Updated: 2023/03/06 18:57:17 by victor           ###   ########.fr       */
+/*   Updated: 2023/03/08 18:02:08 by vburton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,7 @@ void	ft_get_cmd_path(t_cmd *cmd, char **path_array);
 void	ft_execute(t_pipex *pipex);
 
 /*** free ***/
+void	ft_free(t_cmd *cmd, int nb_cmd);
+void	ft_free_split(char **array);
 
 #endif
