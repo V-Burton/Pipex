@@ -6,6 +6,12 @@ FILES 	:= main.c \
 			execution.c \
 			free.c \
 
+FILES 	:= main.c \
+			parsing.c \
+			init.c \
+			execution.c \
+			free.c \
+
 PATH_LIBFT	:= libft/
 
 PATH_PRINTF := ft_printf/
@@ -39,7 +45,7 @@ OBJS    =    $(addprefix $(ODIR), $(FILES:.c=.o))
 all    :     mklib $(ODIR) $(NAME)
 
 $(NAME)    :$(OBJS) ${PATH_LIBFT}libft.a ${PATH_PRINTF}libftprintf.a
-			$(CC) $(CFLAGS) -o $(NAME) $(OBJS) ${PATH_LIBFT}libft.a ${PATH_PRINTF}libftprintf.a
+			$(CC) $(CFLAGS) $(SANITY) -o $(NAME) $(OBJS) ${PATH_LIBFT}libft.a ${PATH_PRINTF}libftprintf.a
 
 $(ODIR)    :
 			mkdir $(ODIR)

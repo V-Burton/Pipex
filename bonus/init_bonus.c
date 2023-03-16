@@ -3,14 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victor <victor@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vburton <vburton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:44:24 by victor            #+#    #+#             */
-/*   Updated: 2023/03/16 18:00:22 by victor           ###   ########.fr       */
+/*   Updated: 2023/03/08 16:55:59 by vburton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
+void	ft_get_cmd(t_pipex *pipex, char **argv, int argc);
+char	*ft_grep_path(char **envp);
+void	ft_get_cmd_path(t_cmd *cmd, char **path_array);
 
 void	ft_init(t_pipex	*pipex, int argc, char **argv, char **envp)
 {
@@ -29,11 +33,10 @@ void	ft_init(t_pipex	*pipex, int argc, char **argv, char **envp)
 	path_array = ft_split(path, ':');
 	if (!path_array)
 		path_array = NULL ;
-	while (path != NULL && i < pipex->nb_cmd)
+	while (i < pipex->nb_cmd)
 	{
 		ft_get_cmd_path(&pipex->cmd[i], path_array);
 		i++;
 	}
-	if (path_array)
-		ft_free_split(path_array);
+	ft_free_split(path_array);
 }
