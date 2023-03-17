@@ -6,7 +6,7 @@
 /*   By: vburton <vburton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:38:22 by victor            #+#    #+#             */
-/*   Updated: 2023/03/17 15:31:30 by vburton          ###   ########.fr       */
+/*   Updated: 2023/03/17 16:10:00 by vburton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	ft_childs(t_pipex *pipex, int input);
 void	ft_last_child(t_pipex *pipex);
-
 
 void	ft_execute(t_pipex *pipex)
 {
@@ -31,7 +30,7 @@ void	ft_execute(t_pipex *pipex)
 
 void	ft_childs(t_pipex *pipex, int input)
 {
-	int fd[2];
+	int	fd[2];
 	int	pid;
 
 	pipe(fd);
@@ -48,7 +47,7 @@ void	ft_childs(t_pipex *pipex, int input)
 		dup2(fd[1], STDOUT_FILENO);
 		close (fd[1]);
 		execve(pipex->cmd[0].array[0], pipex->cmd[0].array, pipex->envp);
-			perror(pipex->cmd[0].array[0]);
+		perror(pipex->cmd[0].array[0]);
 		ft_free(pipex->cmd);
 		exit(1);
 	}
@@ -66,7 +65,7 @@ void	ft_last_child(t_pipex *pipex)
 	if (output == -1)
 	{
 		perror(pipex->output);
-		return;
+		return ;
 	}
 	dup2(output, STDOUT_FILENO);
 	close(output);

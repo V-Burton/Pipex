@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   execution_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victor <victor@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vburton <vburton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:38:22 by victor            #+#    #+#             */
-/*   Updated: 2023/03/16 17:17:00 by victor           ###   ########.fr       */
+/*   Updated: 2023/03/17 16:13:11 by vburton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pipex_bonus.h"
 
 void	ft_childs(t_pipex *pipex, char **cmd, char **envp, int nb_cmd, t_cmd *cmd_array);
 void	ft_last_child(t_pipex *pipex, int i);

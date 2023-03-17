@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victor <victor@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vburton <vburton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:37:42 by victor            #+#    #+#             */
-/*   Updated: 2023/03/16 18:05:15 by victor           ###   ########.fr       */
+/*   Updated: 2023/03/17 16:08:05 by vburton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	ft_get_cmd(t_pipex *pipex, char **argv)
+int	ft_get_cmd(t_pipex *pipex, char **argv)
 {
-	int	i;
+	int		i;
 	t_cmd	*cmd;
 
 	i = 2;
@@ -22,9 +22,12 @@ void	ft_get_cmd(t_pipex *pipex, char **argv)
 	while (i < 4)
 	{
 		cmd->array = ft_split(argv[i], ' ');
+		if (!cmd->array)
+			return (-1);
 		i++;
 		cmd++;
 	}
+	return (0);
 }
 
 char	*ft_grep_path(char **envp)
@@ -42,7 +45,7 @@ void	ft_get_cmd_path(t_cmd *cmd, char **path_array)
 {
 	int		i;
 	char	*buffer;
-	char 	*path_join;
+	char	*path_join;
 
 	i = 0;
 	if (access(cmd->array[0], X_OK) == 0)
