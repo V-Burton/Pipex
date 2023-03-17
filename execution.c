@@ -6,7 +6,7 @@
 /*   By: vburton <vburton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:38:22 by victor            #+#    #+#             */
-/*   Updated: 2023/03/08 18:09:08 by vburton          ###   ########.fr       */
+/*   Updated: 2023/03/15 15:10:18 by vburton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_execute(t_pipex *pipex)
 		perror(pipex->input);
 		i++;
 	}
-	output = open(pipex->output, O_WRONLY | O_TRUNC | O_CREAT, 0644);
+	output = open(pipex->output, O_WRONLY | O_TRUNC | O_CREAT, 0777);
 	if (output == -1)
 	{
 		perror(pipex->output);
@@ -39,9 +39,9 @@ void	ft_execute(t_pipex *pipex)
 	{
 		dup2(input, STDIN_FILENO);
 		close (input);
-	}		
+	}
 	while (i < pipex->nb_cmd - 1)
-	{		
+	{	
 		ft_childs(pipex->cmd[i].array, pipex->envp, pipex);
 		i++;
 	}
@@ -84,7 +84,7 @@ void	ft_last_child(t_pipex *pipex, int i)
 		perror(" :fork failed\n");
 	if (pid == 0)
 	{
-		execve(pipex->cmd[i].array[0], pipex->cmd[i].array, NULL);
+		execve(pipex->cmd[i].array[0], pipex->cmd[i].array, pipex->envp);	
 		perror(pipex->cmd[i].array[0]);
 		ft_free(pipex->cmd, pipex->nb_cmd);
 		exit(1);
