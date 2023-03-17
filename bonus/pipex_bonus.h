@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   pipex_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: victor <victor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:37:47 by victor            #+#    #+#             */
-/*   Updated: 2023/03/16 18:05:40 by victor           ###   ########.fr       */
+/*   Updated: 2023/03/09 18:15:46 by victor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#ifndef PIPEX__BONUS_H
+# define PIPEX_BONUS_H
 
 # include <stdio.h>
 # include <sys/types.h>
@@ -27,6 +27,7 @@ typedef struct s_cmd
 
 typedef struct s_pipex
 {
+	int		nb_cmd;
 	char	*input;
 	char	*output;
 	char	**envp;
@@ -34,10 +35,10 @@ typedef struct s_pipex
 }			t_pipex;
 
 /*** init ***/
-void	ft_init(t_pipex	*pipex, char **argv, char **envp);
+void	ft_init(t_pipex	*pipex, int argc, char **argv, char **envp);
 
 /*** parsing ***/
-void	ft_get_cmd(t_pipex *pipex, char **argv);
+void	ft_get_cmd(t_pipex *pipex, char **argv, int argc);
 char	*ft_grep_path(char **envp);
 void	ft_get_cmd_path(t_cmd *cmd, char **path_array);
 
@@ -45,7 +46,7 @@ void	ft_get_cmd_path(t_cmd *cmd, char **path_array);
 void	ft_execute(t_pipex *pipex);
 
 /*** free ***/
-void	ft_free(t_cmd *cmd);
+void	ft_free(t_cmd *cmd, int nb_cmd);
 void	ft_free_split(char **array);
 
 #endif

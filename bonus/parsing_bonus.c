@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victor <victor@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vburton <vburton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:37:42 by victor            #+#    #+#             */
-/*   Updated: 2023/03/16 18:05:15 by victor           ###   ########.fr       */
+/*   Updated: 2023/03/08 15:35:27 by vburton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	ft_get_cmd(t_pipex *pipex, char **argv)
+void	ft_get_cmd(t_pipex *pipex, char **argv, int argc)
 {
 	int	i;
 	t_cmd	*cmd;
 
-	i = 2;
+	i = pipex->nb_cmd;
 	cmd = pipex->cmd;
-	while (i < 4)
+	while (i < argc - 1)
 	{
 		cmd->array = ft_split(argv[i], ' ');
 		i++;

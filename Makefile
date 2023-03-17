@@ -1,14 +1,24 @@
 NAME    =    pipex
 
-FILES 	:= main.c \
+NAME_BONUS = pipex
+
+FILES 	= main.c \
 			parsing.c \
 			init.c \
 			execution.c \
 			free.c \
 
-PATH_LIBFT	:= libft/
+FILES_BONUS = main_bonus.c \
+			parsing_bonus.c \
+			init_bonus.c \
+			execution_bonus.c \
+			free_bonus.c \
 
-PATH_PRINTF := ft_printf/
+PATH_BONUS = bonus/
+
+PATH_LIBFT	= libft/
+
+PATH_PRINTF = ft_printf/
 
 ######### Compileur and various options ########
 
@@ -26,17 +36,25 @@ RM 		:= 	rm -rf
 
 ########## Rules and dependency ###########
 
-HFILES    =    pipex.h\
+HFILES    =    pipex.h
+
+HFILES_BONUS = pipex_bonus.h
 
 ODIR    =    ./OBJS/
+
+ODIR_BONUS = ./OBJS/
 
 HDIR    =    ./
 
 SRCS    =    $(FILES)
 
+SRCS_BONUS = $(FILES_BONUS)
+
 OBJS    =    $(addprefix $(ODIR), $(FILES:.c=.o))
 
-all    :     mklib $(ODIR) $(NAME)
+OBJS_BONUS    =    $(addprefix $(ODIR_BONUS), $(FILES_BONUS:.c=.o))
+
+all    :     mklib $(ODIR) $(NAME) bonus
 
 $(NAME)    :$(OBJS) ${PATH_LIBFT}libft.a ${PATH_PRINTF}libftprintf.a
 			$(CC) $(CFLAGS) -o $(NAME) $(OBJS) ${PATH_LIBFT}libft.a ${PATH_PRINTF}libftprintf.a
@@ -47,9 +65,18 @@ $(ODIR)    :
 $(ODIR)%.o   :    %.c $(HFILES)
 				$(CC) $(CFLAGS) -o $@ -c $<
 
+$(ODIR_BONUS)    :
+				mkdir $(ODIR_BONUS)
+
+$(ODIR_BONUS)%.o   :    %.c $(HFILES_BONUS)
+						$(CC) $(CFLAGS) -o $@ -c $<
+
 mklib:
 			make -j -C ${PATH_LIBFT}
 			make -j -C ${PATH_PRINTF}
+
+bonus : 	fclean mklib $(OBJS_BONUS) ${PATH_LIBFT}libft.a ${PATH_PRINTF}libftprintf.a
+			$(CC) $(CFLAGS) -o $(NAME_BONUS) $(OBJS_BONUS) ${PATH_LIBFT}libft.a ${PATH_PRINTF}libftprintf.a
 
 clean    :
 		-rm -rf $(OBJS)
@@ -66,7 +93,7 @@ re    :
 	make fclean
 	make all
 
-clearm    :
+clearm    : 
 	clear
 	make
 
