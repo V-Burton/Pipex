@@ -6,7 +6,7 @@
 /*   By: vburton <vburton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:38:22 by victor            #+#    #+#             */
-/*   Updated: 2023/03/17 16:13:11 by vburton          ###   ########.fr       */
+/*   Updated: 2023/03/20 21:41:50 by vburton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	ft_childs(t_pipex *pipex, char **cmd, char **envp, int nb_cmd, t_cmd *cmd_array);
 void	ft_last_child(t_pipex *pipex, int i);
-
 
 void	ft_execute(t_pipex *pipex)
 {
@@ -32,8 +31,7 @@ void	ft_execute(t_pipex *pipex)
 		ft_childs(pipex, pipex->cmd[i].array, pipex->envp, pipex->nb_cmd, pipex->cmd);
 		i++;
 	}
-	if (i < pipex->nb_cmd)
-		ft_last_child(pipex, i);
+	ft_last_child(pipex, i);
 }
 
 void	ft_childs(t_pipex *pipex, char **cmd, char **envp, int nb_cmd, t_cmd *cmd_array)
@@ -48,6 +46,7 @@ void	ft_childs(t_pipex *pipex, char **cmd, char **envp, int nb_cmd, t_cmd *cmd_a
 		pid = fork();
 		if (pid == -1)
 			perror(" :fork failed\n");
+		dprintf(2, "coucou\n");
 	}
 	if (pid == 0)
 	{

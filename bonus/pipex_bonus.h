@@ -6,7 +6,7 @@
 /*   By: vburton <vburton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:37:47 by victor            #+#    #+#             */
-/*   Updated: 2023/03/17 16:12:59 by vburton          ###   ########.fr       */
+/*   Updated: 2023/03/20 20:53:43 by vburton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ typedef struct s_pipex
 }			t_pipex;
 
 /*** init ***/
-void	ft_init(t_pipex	*pipex, int argc, char **argv, char **envp);
+int		ft_init(t_pipex	*pipex, int argc, char **argv, char **envp);
 
 /*** parsing ***/
-void	ft_get_cmd(t_pipex *pipex, char **argv, int argc);
+int		ft_get_cmd(t_pipex *pipex, char **argv, int argc);
 char	*ft_grep_path(char **envp);
 void	ft_get_cmd_path(t_cmd *cmd, char **path_array);
 

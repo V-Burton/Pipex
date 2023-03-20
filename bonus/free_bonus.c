@@ -6,7 +6,7 @@
 /*   By: vburton <vburton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:38:24 by victor            #+#    #+#             */
-/*   Updated: 2023/03/17 16:13:15 by vburton          ###   ########.fr       */
+/*   Updated: 2023/03/20 20:55:06 by vburton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,15 @@ void	ft_free_split(char **array)
 	int	i;
 
 	i = 0;
-	while (array[i])
+	if (array)
 	{
-		free(array[i]);
-		i++;
+		while (array[i])
+		{
+			free(array[i]);
+			i++;
+		}
+		free(array);
 	}
-	free(array);
 }
 
 void	ft_free(t_cmd *cmd, int nb_cmd)
@@ -30,10 +33,13 @@ void	ft_free(t_cmd *cmd, int nb_cmd)
 	int	i;
 
 	i = 0;
-	while (i < nb_cmd)
+	if (cmd)
 	{
-		ft_free_split(cmd[i].array);
-		i++;
+		while (i < nb_cmd)
+		{
+			ft_free_split(cmd[i].array);
+			i++;
+		}
+		free(cmd);
 	}
-	free(cmd);
 }

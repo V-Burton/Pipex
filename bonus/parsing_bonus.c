@@ -6,25 +6,28 @@
 /*   By: vburton <vburton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:37:42 by victor            #+#    #+#             */
-/*   Updated: 2023/03/17 16:13:30 by vburton          ###   ########.fr       */
+/*   Updated: 2023/03/20 21:22:45 by vburton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex_bonus.h"
 
-void	ft_get_cmd(t_pipex *pipex, char **argv, int argc)
+int	ft_get_cmd(t_pipex *pipex, char **argv, int argc)
 {
 	int	i;
 	t_cmd	*cmd;
 
-	i = pipex->nb_cmd;
+	i = pipex->nb_cmd - 1;
 	cmd = pipex->cmd;
 	while (i < argc - 1)
 	{
 		cmd->array = ft_split(argv[i], ' ');
+		if (!cmd->array)
+			return (-1);
 		i++;
 		cmd++;
 	}
+	return (0);
 }
 
 char	*ft_grep_path(char **envp)

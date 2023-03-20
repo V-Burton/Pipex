@@ -1,18 +1,14 @@
-NAME    =    pipex
+NAME    =	../pipex_bonus
 
-NAME_BONUS    =    pipex_bonus
+FILES = main_bonus.c \
+			parsing_bonus.c \
+			init_bonus.c \
+			execution_bonus.c \
+			free_bonus.c
 
-FILES 	= main.c \
-			parsing.c \
-			init.c \
-			execution.c \
-			free.c
+PATH_LIBFT	= ../libft/
 
-PATH_LIBFT	= libft/
-
-PATH_PRINTF = ft_printf/
-
-PATH_BONUS	= bonus/
+PATH_PRINTF = ../ft_printf/
 
 ######### Compileur and various options ########
 
@@ -30,15 +26,17 @@ RM 		:= 	rm -rf
 
 ########## Rules and dependency ###########
 
-HFILES    =    pipex.h
+HFILES    =    pipex_bonus.h
 
 ODIR    =    ./OBJS/
 
 HDIR    =    ./
 
+SRCS    =   $(FILES)
+
 OBJS    =    $(addprefix $(ODIR), $(FILES:.c=.o))
 
-all    :     mklib bonus $(ODIR) $(NAME)
+all    :     mklib $(ODIR) $(NAME)
 
 $(NAME)    :$(OBJS) ${PATH_LIBFT}libft.a ${PATH_PRINTF}libftprintf.a
 			$(CC) $(CFLAGS) -o $(NAME) $(OBJS) ${PATH_LIBFT}libft.a ${PATH_PRINTF}libftprintf.a
@@ -53,20 +51,14 @@ mklib	:
 			make -j -C ${PATH_LIBFT}
 			make -j -C ${PATH_PRINTF}
 
-bonus	: 
-			make -j -C ${PATH_BONUS}
-
 clean    :
 		-rm -rf $(OBJS)
 		-rm -rf $(ODIR)
-		-rm -rf $(OBJS_B)
 		make clean -C ${PATH_LIBFT}
 		make clean -C ${PATH_PRINTF}
 
 fclean    :    clean
 		-rm $(NAME)
-		-rm $(NAME_BONUS)
-		make fclean -C $(PATH_BONUS)
 		make fclean -C ${PATH_LIBFT}
 		make fclean -C ${PATH_PRINTF}
 
@@ -78,4 +70,4 @@ clearm    :
 	clear
 	make
 
-.PHONY    :    all clean fclean re bonus
+.PHONY    :    all clean fclean re

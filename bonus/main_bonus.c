@@ -6,7 +6,7 @@
 /*   By: vburton <vburton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:37:45 by victor            #+#    #+#             */
-/*   Updated: 2023/03/17 16:13:25 by vburton          ###   ########.fr       */
+/*   Updated: 2023/03/20 20:55:57 by vburton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ int main(int argc, char **argv, char **envp)
 {
 	t_pipex	pipex;
 
-	if (argc != 5)
-		return (ft_printf("Wrong number of arguments.\n"));
-	ft_init(&pipex, argc, argv, envp);
+	if (argc < 5)
+		return (ft_printf("Five arguments are recquired.\n"));
+	if (ft_init(&pipex, argc, argv, envp) == -1)
+		return (ft_free(pipex.cmd, pipex.nb_cmd), 1);
 	ft_execute(&pipex);
 	ft_free(pipex.cmd, pipex.nb_cmd);
 	return (1);
-
 }
