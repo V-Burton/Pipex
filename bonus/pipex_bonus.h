@@ -6,11 +6,11 @@
 /*   By: vburton <vburton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:37:47 by victor            #+#    #+#             */
-/*   Updated: 2023/03/20 20:53:43 by vburton          ###   ########.fr       */
+/*   Updated: 2023/03/21 19:59:24 by vburton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX__BONUS_H
+#ifndef PIPEX_BONUS_H
 # define PIPEX_BONUS_H
 
 # include <stdio.h>
@@ -43,7 +43,7 @@ char	*ft_grep_path(char **envp);
 void	ft_get_cmd_path(t_cmd *cmd, char **path_array);
 
 /*** execution ***/
-void	ft_execute(t_pipex *pipex);
+void	ft_execute(t_pipex pipex);
 
 /*** free ***/
 void	ft_free(t_cmd *cmd, int nb_cmd);

@@ -6,7 +6,7 @@
 /*   By: vburton <vburton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:37:42 by victor            #+#    #+#             */
-/*   Updated: 2023/03/20 21:22:45 by vburton          ###   ########.fr       */
+/*   Updated: 2023/03/21 19:58:23 by vburton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	ft_get_cmd(t_pipex *pipex, char **argv, int argc)
 {
-	int	i;
+	int		i;
 	t_cmd	*cmd;
 
-	i = pipex->nb_cmd - 1;
+	i = 2;
 	cmd = pipex->cmd;
 	while (i < argc - 1)
 	{
@@ -45,7 +45,7 @@ void	ft_get_cmd_path(t_cmd *cmd, char **path_array)
 {
 	int		i;
 	char	*buffer;
-	char 	*path_join;
+	char	*path_join;
 
 	i = 0;
 	if (access(cmd->array[0], X_OK) == 0)

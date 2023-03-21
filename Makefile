@@ -38,7 +38,7 @@ HDIR    =    ./
 
 OBJS    =    $(addprefix $(ODIR), $(FILES:.c=.o))
 
-all    :     mklib bonus $(ODIR) $(NAME)
+all    :     mklib $(ODIR) $(NAME)
 
 $(NAME)    :$(OBJS) ${PATH_LIBFT}libft.a ${PATH_PRINTF}libftprintf.a
 			$(CC) $(CFLAGS) -o $(NAME) $(OBJS) ${PATH_LIBFT}libft.a ${PATH_PRINTF}libftprintf.a
