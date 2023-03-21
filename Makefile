@@ -53,7 +53,7 @@ mklib	:
 			make -j -C ${PATH_LIBFT}
 			make -j -C ${PATH_PRINTF}
 
-bonus	: 
+bonus	:
 			make -j -C ${PATH_BONUS}
 
 clean    :

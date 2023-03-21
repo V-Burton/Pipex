@@ -6,7 +6,7 @@
 /*   By: vburton <vburton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:38:22 by victor            #+#    #+#             */
-/*   Updated: 2023/03/21 20:42:15 by vburton          ###   ########.fr       */
+/*   Updated: 2023/03/22 00:52:54 by vburton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	ft_childs(t_pipex pipex, int input)
 		dup2(fd[1], STDOUT_FILENO);
 		close (fd[1]);
 		execve(pipex.cmd[0].array[0], pipex.cmd[0].array, pipex.envp);
-		perror(pipex.cmd[0].array[0]);
 		ft_free(pipex.cmd);
 		exit(1);
 	}
@@ -75,7 +74,6 @@ void	ft_last_child(t_pipex pipex)
 	if (pid == 0)
 	{
 		execve(pipex.cmd[1].array[0], pipex.cmd[1].array, pipex.envp);
-		perror(pipex.cmd[1].array[0]);
 		ft_free(pipex.cmd);
 		exit(1);
 	}
