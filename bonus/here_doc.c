@@ -6,7 +6,7 @@
 /*   By: vburton <vburton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 19:13:09 by vburton           #+#    #+#             */
-/*   Updated: 2023/03/21 20:06:30 by vburton          ###   ########.fr       */
+/*   Updated: 2023/03/21 22:38:35 by vburton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ void	check_here_doc_status(t_pipex *pipex, char **argv)
 		pipex->limiter = ft_strjoin(argv[2], "\n");
 	}
 	else
+	{
+		pipex->here_doc = 0;
 		pipex->limiter = NULL;
+	}
 }
 
 int	guess_here_doc(t_pipex *pipex)

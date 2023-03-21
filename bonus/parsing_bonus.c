@@ -6,7 +6,7 @@
 /*   By: vburton <vburton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:37:42 by victor            #+#    #+#             */
-/*   Updated: 2023/03/21 19:58:23 by vburton          ###   ########.fr       */
+/*   Updated: 2023/03/21 21:02:22 by vburton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_get_cmd(t_pipex *pipex, char **argv, int argc)
 	int		i;
 	t_cmd	*cmd;
 
-	i = 2;
+	i = 2 + pipex->here_doc;
 	cmd = pipex->cmd;
 	while (i < argc - 1)
 	{

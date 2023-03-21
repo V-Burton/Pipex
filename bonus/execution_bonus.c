@@ -6,7 +6,7 @@
 /*   By: vburton <vburton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:38:22 by victor            #+#    #+#             */
-/*   Updated: 2023/03/21 19:54:58 by vburton          ###   ########.fr       */
+/*   Updated: 2023/03/21 20:53:46 by vburton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,14 @@ void	ft_execute(t_pipex pipex)
 	int	input;
 
 	i = 0;
-	input = open(pipex.input, O_RDONLY);
-	if (input == -1)
-		perror(pipex.input);
-	dup2(input, STDIN_FILENO);
-	close (input);
+	if (pipex.here_doc != 1)
+	{
+		input = open(pipex.input, O_RDONLY);
+		if (input == -1)
+			perror(pipex.input);
+		dup2(input, STDIN_FILENO);
+		close (input);
+	}
 	while (i < pipex.nb_cmd - 1)
 	{
 		ft_childs(pipex.envp, pipex.nb_cmd, pipex.cmd, input);
