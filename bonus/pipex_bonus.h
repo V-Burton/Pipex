@@ -6,7 +6,7 @@
 /*   By: vburton <vburton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:37:47 by victor            #+#    #+#             */
-/*   Updated: 2023/03/21 19:59:24 by vburton          ###   ########.fr       */
+/*   Updated: 2023/03/21 20:09:21 by vburton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ typedef struct s_cmd
 typedef struct s_pipex
 {
 	int		nb_cmd;
+	int		here_doc;
+	char	*limiter;
 	char	*input;
 	char	*output;
 	char	**envp;
@@ -48,5 +50,10 @@ void	ft_execute(t_pipex pipex);
 /*** free ***/
 void	ft_free(t_cmd *cmd, int nb_cmd);
 void	ft_free_split(char **array);
+
+/*** here_doc ***/
+void	check_here_doc_status(t_pipex *pipex, char **argv);
+int		guess_here_doc(t_pipex *pipex);
+void	fils_here_doc(t_pipex *pipex, int *fd);
 
 #endif

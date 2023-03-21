@@ -4,7 +4,8 @@ FILES = main_bonus.c \
 			parsing_bonus.c \
 			init_bonus.c \
 			execution_bonus.c \
-			free_bonus.c
+			free_bonus.c \
+			here_doc.c
 
 PATH_LIBFT	= ../libft/
 

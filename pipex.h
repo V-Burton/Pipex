@@ -6,7 +6,7 @@
 /*   By: vburton <vburton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:37:47 by victor            #+#    #+#             */
-/*   Updated: 2023/03/21 19:44:13 by vburton          ###   ########.fr       */
+/*   Updated: 2023/03/21 20:42:34 by vburton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <fcntl.h>
 # include "libft/libft.h"
 # include "ft_printf/ft_printf.h"
+# include <sys/wait.h>
 
 typedef struct s_cmd
 {
@@ -27,6 +28,7 @@ typedef struct s_cmd
 
 typedef struct s_pipex
 {
+	int		*pid;
 	char	*input;
 	char	*output;
 	char	**envp;
