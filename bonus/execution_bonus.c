@@ -6,7 +6,7 @@
 /*   By: vburton <vburton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:38:22 by victor            #+#    #+#             */
-/*   Updated: 2023/03/22 00:45:07 by vburton          ###   ########.fr       */
+/*   Updated: 2023/05/05 16:06:56 by vburton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	ft_execute(t_pipex pipex)
 	}
 	while (i < pipex.nb_cmd - 1)
 	{
+		input = -1;
 		ft_childs(pipex.envp, pipex.nb_cmd, copy, input);
 		copy++;
 		i++;
