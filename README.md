@@ -5,7 +5,7 @@ His goal is to simulate a pipe operator in the shell.
 The mandatory part takes a file as input and a file as output. The program is executed as follows: `./pipex file1 cmd1 cmd2 file2`.
 
 This project will familiarize you with the `execve`, `dup`, `dup2`, and `fork` functions.
-To do so, I strongly recommend you to watch all the videos from the course "UNIX Processes in C" from the channel CodeVault on YouTube. [UNIX Processes in C](https://www.youtube.com/watch?v=cex9XrZCU14&list=PLfqABt5AS4FkW5mOn2Tn9ZZLLDwA3kZUY)
+To do so, I strongly recommend you to watch all the videos from the course [UNIX Processes in C](https://www.youtube.com/watch?v=cex9XrZCU14&list=PLfqABt5AS4FkW5mOn2Tn9ZZLLDwA3kZUY) from the channel CodeVault on YouTube.
 
 ## Tips
 
