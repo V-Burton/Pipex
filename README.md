@@ -16,3 +16,5 @@ Except this, there is no big difficulty in this project.
 Please note that this README is intended to provide a brief overview of the Pipex project and some useful tips.
 
 Happy coding!
+
+## Edit : Somethings wrong with the Bonus part. I'll fixe it soon!
