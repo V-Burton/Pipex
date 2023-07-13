@@ -6,7 +6,7 @@
 /*   By: vburton <vburton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:37:42 by victor            #+#    #+#             */
-/*   Updated: 2023/03/22 00:43:46 by vburton          ###   ########.fr       */
+/*   Updated: 2023/03/22 16:29:01 by vburton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,4 @@ void	ft_get_cmd_path(t_cmd *cmd, char **path_array)
 		i++;
 		free(path_join);
 	}
-	ft_error(cmd->array[0]);
 }

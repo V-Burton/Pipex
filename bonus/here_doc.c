@@ -6,7 +6,7 @@
 /*   By: vburton <vburton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 19:13:09 by vburton           #+#    #+#             */
-/*   Updated: 2023/05/05 16:04:32 by vburton          ###   ########.fr       */
+/*   Updated: 2023/03/24 17:33:32 by vburton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,9 @@ void	fils_here_doc(t_pipex *pipex, int *fd)
 		next_line = get_next_line(STDIN_FILENO);
 		if (!next_line || ft_strcmp(next_line, pipex->limiter) == 0)
 		{
-			free(next_line);
+			if (next_line)
+				free(next_line);
+			get_next_line(-1);
 			close (fd[1]);
 			break ;
 		}
@@ -67,7 +69,6 @@ void	fils_here_doc(t_pipex *pipex, int *fd)
 		write(fd[1], next_line, ft_strlen(next_line));
 		free(next_line);
 	}
-	get_next_line(-1);
 	free(pipex->limiter);
 	pipex->limiter = NULL;
 	close (fd[1]);

@@ -6,7 +6,7 @@
 /*   By: vburton <vburton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:38:24 by victor            #+#    #+#             */
-/*   Updated: 2023/05/03 11:01:37 by vburton          ###   ########.fr       */
+/*   Updated: 2023/03/22 15:50:00 by vburton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,4 @@ void	ft_free(t_cmd *cmd)
 		}
 		free(cmd);
 	}
-}
-
-void	ft_error(char *cmd)
-{
-	if (ft_strcmp(cmd, ".") == 0)
-		ft_printf("%s : filename argument required\n", cmd);
-	else if (ft_strcmp(cmd, "./") == 0)
-		ft_printf("%s : no such file or directory\n", cmd);
-	else
-		ft_printf("%s : Command not found\n", cmd);
 }

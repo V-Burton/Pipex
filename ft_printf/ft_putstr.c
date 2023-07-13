@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vburton < vburton@student.42lyon.fr>       +#+  +:+       +#+        */
+/*   By: vburton <vburton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 18:26:46 by vburton           #+#    #+#             */
-/*   Updated: 2022/11/17 18:21:20 by vburton          ###   ########.fr       */
+/*   Updated: 2023/03/24 17:44:43 by vburton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ int	ft_putstr(char *s)
 		return (i += 6);
 	}
 	while (s[i])
-	{
-		i += ft_putchar(s[i]);
-	}
+		i++;
+	write(1, s, i);
 	return (i);
 }

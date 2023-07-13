@@ -6,7 +6,7 @@
 /*   By: vburton <vburton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:37:47 by victor            #+#    #+#             */
-/*   Updated: 2023/03/22 00:32:27 by vburton          ###   ########.fr       */
+/*   Updated: 2023/03/24 15:08:32 by vburton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	ft_execute(t_pipex pipex);
 /*** free ***/
 void	ft_free(t_cmd *cmd, int nb_cmd);
 void	ft_free_split(char **array);
-void	ft_error(char *cmd);
+int		ft_error(char *cmd);
 
 /*** here_doc ***/
 void	check_here_doc_status(t_pipex *pipex, char **argv);

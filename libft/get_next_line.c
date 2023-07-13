@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vburton < vburton@student.42lyon.fr>       +#+  +:+       +#+        */
+/*   By: vburton <vburton@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:26:49 by vburton           #+#    #+#             */
-/*   Updated: 2023/01/26 14:18:46 by vburton          ###   ########.fr       */
+/*   Updated: 2023/03/24 16:43:58 by vburton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,9 @@ char	*get_next_line(int fd)
 	if (!next_line)
 	{
 		free(keep);
+		free(next_line);
 		keep = NULL;
+		next_line = NULL;
 	}
 	return (next_line);
 }
